@@ -10,7 +10,7 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: *YourNameHere*
-* ID: *YourIdHere*
-* Group ID: *Your Group ID here*
-* Project Name: *Your Project Name here*
+* Name: Phan Lạc Hưng
+* ID: 22BI13186
+* Group ID: 5
+* ProjBIect Name: Collaborative note-taking app
