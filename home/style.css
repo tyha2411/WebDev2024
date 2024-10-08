@@ -160,7 +160,7 @@ body {
 .content {
     margin-left: 260px;
     padding: 10px;
-    flex-grow: 1;
+    flex-grow: 1    ;
 }
 
 @media (max-width: 100%) {
