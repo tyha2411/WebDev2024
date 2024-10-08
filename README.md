@@ -10,7 +10,11 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: *Nguyễn Hoàng Duy*
-* ID: *22BI13122*
+
+
+
+* Name: *Cao Thái Hà*
+* ID: *22BI13136*
+
 * Group ID: *5*
 * Project Name: *Collaborative Note-Taking App*
