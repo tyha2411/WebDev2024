@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared with Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 w-64 p-4 flex flex-col">
+            <div class="flex items-center mb-6">
+                <div class="bg-purple-500 rounded-full w-10 h-10 flex items-center justify-center text-white text-lg font-bold">C</div>
+                <div class="ml-4">
+                    <div class="text-sm font-semibold">caohand50287836b...</div>
+                    <div class="text-xs text-gray-400">caohand@gmail.com</div>
+                </div>
+                <div class="ml-auto">
+                    <i class="fas fa-bell text-gray-400"></i>
+                </div>
+            </div>
+            <div class="relative mb-4">
+                <input type="text" placeholder="Search" class="w-full bg-gray-700 text-sm text-white rounded-md py-2 pl-10 pr-4 focus:outline-none">
+                <i class="fas fa-search absolute left-3 top-2.5 text-gray-400"></i>
+            </div>
+            <div class="flex space-x-2 mb-4">
+                <button class="bg-green-500 text-black text-sm font-semibold py-2 px-4 rounded-md flex items-center">
+                    <i class="fas fa-plus mr-2"></i> Note
+                </button>
+                <button class="bg-purple-500 text-black text-sm font-semibold py-2 px-4 rounded-md flex items-center">
+                    <i class="fas fa-tasks mr-2"></i> Task
+                </button>
+                <button class="bg-orange-500 text-black text-sm font-semibold py-2 px-4 rounded-md flex items-center">
+                    <i class="fas fa-calendar-alt mr-2"></i> Event
+                </button>
+            </div>
+            <nav class="flex-1">
+                <ul class="space-y-2">
+                    <li class="flex items-center text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fas fa-sticky-note mr-3"></i> Notes
+                    </li>
+                    <li class="flex items-center text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fas fa-check-circle mr-3"></i> Tasks
+                    </li>
+                    <li class="flex items-center text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fas fa-file-alt mr-3"></i> Files
+                    </li>
+                    <li class="flex items-center text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fas fa-calendar mr-3"></i> Calendar
+                    </li>
+                    <li class="flex items-center text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fas fa-book mr-3"></i> Notebooks
+                    </li>
+                    <li class="flex items-center text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fas fa-tags mr-3"></i> Tags
+                    </li>
+                    <li class="flex items-center text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fas fa-user-friends mr-3"></i> Shared with Me
+                    </li>
+                    <li class="flex items-center text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fas fa-trash mr-3"></i> Trash
+                    </li>
+                </ul>
+            </nav>
+            <button class="bg-yellow-500 text-black text-sm font-semibold py-2 px-4 rounded-md mt-4 flex items-center justify-center">
+                <i class="fas fa-arrow-up mr-2"></i> Upgrade
+            </button>
+            <div class="mt-4 text-gray-400 text-sm flex items-center">
+                <i class="fas fa-question-circle mr-2"></i> Need a little help?
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col items-center justify-center">
+            <div class="flex items-center justify-center mb-4">
+                <div class="bg-green-500 w-12 h-12 rounded-full"></div>
+                <div class="bg-green-500 w-12 h-12 rounded-full ml-2"></div>
+                <div class="bg-green-500 w-12 h-12 rounded-full ml-2"></div>
+                <div class="bg-green-500 w-12 h-12 rounded-full ml-2"></div>
+            </div>
+            <div class="text-center">
+                <div class="text-lg font-semibold mb-2">Nothing shared yet</div>
+                <div class="text-sm text-gray-400">Notes and notebooks shared with you will show up here.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
