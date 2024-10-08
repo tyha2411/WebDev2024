@@ -10,7 +10,11 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: Phan Lạc Hưng
-* ID: 22BI13186
-* Group ID: 5
-* ProjBIect Name: Collaborative note-taking app
+
+
+
+* Name: *Cao Thái Hà*
+* ID: *22BI13136*
+* Group ID: *5*
+* Project Name: *Collaborative Note-Taking App*
+
