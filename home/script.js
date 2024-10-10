@@ -1,22 +1,56 @@
-const handle = document.querySelector('.sidebar');
-const sidebar = document.querySelector('.sidebar_container');
+let isManuallyToggled = false;  // Track whether the user manually toggled the sidebar
 
-let isResizing = false;
+const sidebar = document.querySelector('.sidebar');
+const contractBtn = document.querySelector('.contract_btn');
+const expandBtn = document.querySelector('.expand_btn');
 
-// Mouse down event to start resizing
-handle.addEventListener('mousedown', (e) => {
-    isResizing = true;
+// Handle sidebar toggle when clicking buttons
+contractBtn.onclick = function () {
+    sidebar.classList.add('active');  // Contract sidebar
+    isManuallyToggled = true;  // User manually toggled
+};
+
+expandBtn.onclick = function () {
+    sidebar.classList.remove('active');  // Expand sidebar
+    isManuallyToggled = true;  // User manually toggled
+};
+
+// Function to handle resizing the window
+function handleResize() {
+    if (!isManuallyToggled) {
+        if (window.innerWidth >= 800) {
+            sidebar.classList.remove('active');  // Expand when large
+        } else {
+            sidebar.classList.add('active');    // Contract when small
+        }
+    }
+}
+
+// Attach the event listener for window resize
+window.addEventListener('resize', handleResize);
+
+// Call the function initially to set the correct state based on window size
+handleResize();
+
+// Get references to the buttons
+const noteButton = document.querySelector('.note');
+const moreButton = document.querySelector('.more');
+const taskButton = document.querySelector('.task');
+const eventButton = document.querySelector('.event');
+
+// Add click event listeners
+noteButton.addEventListener('click', () => {
+    alert('Note button clicked!');
 });
 
-// Mouse up event to stop resizing
-document.addEventListener('mouseup', () => {
-    isResizing = false;
+moreButton.addEventListener('click', () => {
+    alert('More button clicked!');
 });
 
-// Mouse move event to resize the sidebar
-document.addEventListener('mousemove', (e) => {
-    if (!isResizing) return;
+taskButton.addEventListener('click', () => {
+    alert('Task button clicked!');
+});
 
-    const newWidth = e.clientX - sidebar.getBoundingClientRect().left;
-    sidebar.style.width = `${newWidth}px`; // Set new width of the sidebar
+eventButton.addEventListener('click', () => {
+    alert('Event button clicked!');
 });

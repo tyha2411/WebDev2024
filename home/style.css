@@ -1,90 +1,123 @@
-html {min-height: 100%}
 body {
-    background: linear-gradient(to right, #f6f5f3,#f5eff6);
+    background: linear-gradient(to right, #f4f2ea,#f7f2f7);
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-family: sans-serif;
-    --padding:10px;
 }
 
+.everything {
+    display: flex;
+    height: 100vh;
+}
 
 /* sidebar */
 .sidebar {
-    cursor: ew-resize; /* Change cursor to indicate resizing */
-    width: 10px; /* Width of the resize handle */
-    height: 100%; /* Full height of the sidebar */
-    background: #ccc; /* Color of the handle */
-    position: absolute;
-    right: 0; /* Position at the right edge of the sidebar */
-    top: 0;
-}
-
-.sidebar_container{
-    background: #f2f2f2;
     position: fixed;
+    background: #f2f2f2;
+    margin: 5px;
     top: 0;
     left: 0;
-    margin: 5px;
     height: 97vh;
     font-size: 15px;
     padding: 5px;
     border-radius: 3px;
     width: 250px;
     border: 1px solid gray;
-    }
+    transition: all 0.5s ease;
+}
 
 
-/* profile + notification bell */
+.expand {
+    display: flex;
+    justify-content: center;
+}
+
+.expand .expand_btn{
+    display: none;
+}
+
+.sidebar.active .expand .contract_btn {
+    display: none;
+}
+
+.sidebar.active .expand .expand_btn {
+    display: block;
+}
+
+.sidebar.active {
+    width: 80px;
+}
+
+.sidebar.active ~ .main_content {
+    margin-left: 110px;
+    width: calc(100% - 80px);
+}
+
+/* profile*/
 .profile {
     display: flex;
     justify-content: space-between;
     z-index: 1;
     max-width: 40%;
-    padding: var(--padding);
+    padding: 10px 20px;
 }
-.user{
+
+.user {
     display: block;
-    padding: 0 var(--padding);
+    padding: 0 10px;
     color: black;
 }
-.avatar img{
+
+.avatar img {
     border-radius: 50%;
     height: 40px;
     width: 40px;
 }
-.notification{
-    vertical-align: center;
-    color: black;
+
+.sidebar.active .user {
+    display: none;
 }
 
 /* searchbar */
 .searchbar {
-    width: 91%;
-    position: sticky;
     display: flex;
     align-items: center;
-    padding: var(--padding);
+    padding: 10px;
     margin: 5px 0;
     border-radius: 5px;
     height: 15px;
     background: #e6e6e6;
 }
+
 .search_icon {
     color: rgba(0,0,0,0.5);
 }
+
 .search_input {
     font-size: 16px;
-    font-family: 'Lexend', sans-serif;
-    margin-left: var(--padding);
+    font-family: sans-serif;
+    margin-left: 10px;
     outline: none;
     border: none;
     background: transparent;
     flex: 1;
 }
+
 .search_input::placeholder {color: rgba(0,0,0,0.5)}
 
+.sidebar.active .search_input{
+    display: none;
+}
+
+/* quick create */
 .create {
     display: flex;
     flex-direction: column;
+}
+
+.create button:hover{
+    filter: brightness(0.8);
 }
 
 .note{
@@ -128,47 +161,71 @@ body {
     background-color: #ee6631;
     border-width: 0;
 }
-/* navigation */
-.navigation{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 70vh;
+
+.sidebar.active .event,
+.sidebar.active .task,
+.sidebar.active .more,
+.sidebar.active .note{
+    width: 98%;
 }
 
-.navigation .navigation_1, .navigation_item {
-    list-style: none;
+/* navigation */
+
+.sidebar.active .navigation .text,
+.sidebar.active .help .text{
+    display: none;
+}
+
+.sidebar.active .navigation_item .material-symbols-outlined{
+    margin-left: 15px;
+    padding: 10px 0;
+}
+
+.navigation .navigation_item {
     text-decoration: none;
     color: black;
     padding: 5px;
 }
 
-.navigation_1 li{
-    padding: 3px;
+.navigation li{
+    list-style: none;
+    padding: 10px 0;
+    margin-left: -30px;
 }
 
-.navigation_item .material-symbols-outlined, .help_item .material-symbols-outlined {
+.navigation ul :hover{
+    background: #e6e6e6;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.navigation_item .material-symbols-outlined,
+.help_item .material-symbols-outlined {
     vertical-align: middle;
-    font-size: 16px;
+    font-size: 20px;
 }
 
-.navigation .help .help_item{
+.sidebar.active .help{
+    padding: 0;
+    margin: 0 30px;
+}
+.help{
+    padding: 10px;
+    margin: 50px 10px;
+    transition: all 0.5s ease;
+}
+.help .help_item{
     text-decoration: none;
     color: black;
 }
 
-.content {
-    margin-left: 260px;
-    padding: 10px;
-    flex-grow: 1    ;
+.help .help_item:hover {
+    font-size: 30px;
 }
 
-@media (max-width: 100%) {
-    .sidebar {
-        width: 200px;
-    }
-
-    .content {
-        margin-left: 210px; 
-    }
+/* main contents */
+.main_content {
+    transition: all 0.5s ease;
+    margin-left: 280px;
+    width: calc(100%-250px);
 }
