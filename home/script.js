@@ -38,9 +38,10 @@ const moreButton = document.querySelector('.more');
 const taskButton = document.querySelector('.task');
 const eventButton = document.querySelector('.event');
 
-// Add click event listeners
+
 noteButton.addEventListener('click', () => {
     alert('Note button clicked!');
+    
 });
 
 moreButton.addEventListener('click', () => {
@@ -54,3 +55,21 @@ taskButton.addEventListener('click', () => {
 eventButton.addEventListener('click', () => {
     alert('Event button clicked!');
 });
+
+const note1 = document.querySelector('.note1');
+const note2 = document.querySelector('.note2');
+const newNote = document.querySelector('.note_new');
+
+
+note1.addEventListener('click', () => {
+    alert('Display note');
+});
+
+note2.addEventListener('click', () => {
+    alert('Display note');
+});
+
+newNote.addEventListener('click', () => {
+    alert('Create note');
+});
+
