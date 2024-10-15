@@ -13,8 +13,10 @@ Student Info
 
 
 
-* Name: *Cao Thái Hà*
-* ID: *22BI13136*
 
-* Group ID: *5*
-* Project Name: *Collaborative Note-Taking App*
+* Name: Cao Thái Hà
+* ID: 22BI13136
+* Group ID: 5
+* Project Name: Collaborative Note-Taking App
+
+
