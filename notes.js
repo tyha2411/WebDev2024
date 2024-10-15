@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tippy(expandCollapseBtn, {
         content: "Expand note",
+        delay: [200, 200],
     });
 
     expandCollapseBtn.addEventListener("click", () => {
@@ -121,9 +122,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Add "SHARE" button
-    var shareBtn = document.createElement("div");
-    shareBtn.innerHTML = `<div class="share-btn">Share</div>`;
-    toolbarUpper.appendChild(shareBtn);
+    var shareDeleteBtn = document.createElement("div");
+    shareDeleteBtn.classList.add("share-delete-btn");
+    shareDeleteBtn.innerHTML = `
+    <div class="share-btn">Share</div>
+    <div class="deleteBtn material-symbols-outlined">delete</div>
+    `;
+    toolbarUpper.appendChild(shareDeleteBtn);
+    const deleteBtn = document.querySelector(".deleteBtn");
+    tippy(deleteBtn, {
+        content: "Move to Trash",
+        delay: [200, 200],
+    });
 
     // Add pop-up which will show up when clicking the "SHARE" button
     var popupBox = document.createElement("div");
@@ -157,6 +167,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <div class="role">Owner</div>
             </div>
+            <p>General access</p>
+            <div class="general-access">
+                <select class="permission-link"></select>
+            </div>
             <button class="copy-link-btn">
                 <span class="material-symbols-outlined">link</span>Copy link
             </button>
@@ -175,6 +189,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const permissionSelect = document.querySelector(".permission-select");
 
     // Show pop-up when clicking the "SHARE" button
+    const shareBtn = document.querySelector(".share-btn");
+    tippy(shareBtn , {
+        content: "Share note",
+        delay: [200, 200],
+    });
     shareBtn.addEventListener("click", () => {
         popupBox.classList.add("show");
         overlay.classList.add("show");
