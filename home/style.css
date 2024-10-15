@@ -294,8 +294,8 @@ body {
 .note_create1 .note1,
 .note_create1 .note2,
 .note_create .note_new {
-    width: 150px !important;
-    height: 250px !important;
+    width: 150px;
+    height: 250px;
     background: white;
     border-radius: 3px;
     border: 1px solid grey;
@@ -303,7 +303,8 @@ body {
 }
 
 .note1,
-.note2 {
+.note2,
+.note_new {
     position: relative;
 }
 
@@ -320,10 +321,6 @@ body {
     position: absolute;
     left: 0;
     bottom: 0;
-}
-
-.note_new {
-    position: relative;
 }
 
 .note_new .material-symbols-outlined {
@@ -376,7 +373,6 @@ body {
 
 .calendar {
     width: clamp(150px, 250px, 90%);
-    background: transparent;
 }
 
 .calendar header {
@@ -392,7 +388,6 @@ body {
 }
 
 .calendar ul {
-    margin: 0;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -412,23 +407,38 @@ body {
 
 #prev,
 #next {
-    margin: 5px;
     width: 15px;
     height: 15px;
     position: relative;
     border: none;
-    color:#4a4a4a;
     background: transparent;
     cursor: pointer;
 }
 
-#prev:hover,
-#next:hover {
-    color: #000;
+#prev::before,
+#next::before {
+    content: "";
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 0.2em 0.2em 0 0;
+    border-color: gray;
 }
 
-.calendar section {
-    margin: 0;
+#next::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#prev::before {
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+#prev:hover::before,
+#next:hover::before {
+    border-color: #000;
 }
 
 .day {
@@ -457,7 +467,8 @@ body {
 }
 
 
-@media screen and (max-width: 1200px) and (max-height: 600px) {
+
+@media screen and (max-width: 1200px) {
     .main_content {
         display: flex;
         flex-direction: column;
@@ -481,9 +492,23 @@ body {
         position: relative;
     }
 
+
+}
+
+@media screen and (max-height: 600px) {
+    .main_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .help {
+        position: relative;
+    }
+
     .navigation {
         max-height: 200px;
         overflow-y: auto; 
         overflow-x: hidden;
     }
 }
+
