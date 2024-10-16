@@ -227,6 +227,7 @@ body {
     border-radius: 4px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .popup-body .input-field:focus-within {
@@ -242,16 +243,28 @@ body {
     outline: none;
 }
 
+.popup-body .link-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 18px;
+}
+
 .popup-body .permission-select {
-    margin-right: 10px;
     position: absolute;
-    right: 95px;
-    border: none;
-    color: #535353;
-    padding-right: 5px;
-    outline: none;
+    right: 110px;
+    z-index: 2;
+    opacity: 0;
+}    
+
+.popup-body .permission-select:hover {
+    cursor: pointer;
+}
+
+.popup-body .update-text-permission {
+    z-index: 1;
     font-size: 0.8em;
-    text-align: left;
+    color: #535353;
 }
 
 .popup-body .invite-btn {
@@ -316,8 +329,77 @@ body {
 }
 
 .role {
-    color: #737373;
+    color: #535353;
     font-size: 0.8em;
+}
+
+.general-access {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 10px 0 5px;
+}
+
+.access-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-icon {
+    background-color: #e6e6e6;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.status-icon .material-symbols-outlined {
+    rotate: 0deg;
+    background-color: transparent;
+    color: black;
+    font-size: 20px !important;
+}
+
+.status-text {
+    font-size: 0.9em;
+}
+
+.access-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.permission-link {
+    position: absolute;
+    right: 30px;
+    z-index: 2;
+    opacity: 0;
+}
+
+.permission-link:hover {
+    cursor: pointer;
+}
+
+.update-text-link {
+    z-index: 1;
+    font-size: 0.8em;
+    color: #535353;
+}
+
+.arrow-dropdown {
+    border: solid #535353;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    z-index: 1;
+    margin-top: -5px;
 }
 
 .popup-body .copy-link-btn {

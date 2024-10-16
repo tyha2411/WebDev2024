@@ -147,11 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="invite-field">
                 <div class="input-field">
                     <input id="share-input" value="" placeholder="Enter name or email">
-                    <select class="permission-select">
-                        <option value="edit-invite">Can edit and invite</option>
-                        <option value="edit">Can edit</option>
-                        <option value="view">Can view</option>
-                    </select>
+                    <div class="link-option">
+                        <select class="permission-select">
+                            <option data-display="Can edit and invite">Can edit and invite</option>
+                            <option data-display="Can edit">Can edit</option>
+                            <option data-display="Can view">Can view</option>
+                        </select>
+                        <div class="update-text-permission">Can edit and invite</div>
+                        <div class="arrow-dropdown"></div>
+                    </div>
                 </div>
                 <button class="invite-btn">Invite</button>
             </div>
@@ -169,7 +173,21 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <p>General access</p>
             <div class="general-access">
-                <select class="permission-link"></select>
+                <div class="access-status">
+                    <div class="status-icon">
+                        <span class="material-symbols-outlined">lock</span>
+                    </div>
+                    <div class="status-text">Restricted</div>
+                </div>
+                <div class="access-option">
+                    <select class="permission-link">
+                        <option access-display="Restricted" data-display="Restricted access">Restricted access</option>
+                        <option access-display="Anyone with the link" data-display="Can view">Anyone with the link can view</option>
+                        <option access-display="Anyone with the link" data-display="Can edit">Anyone with the link can edit</option>
+                    </select>
+                    <div class="update-text-link">Restricted access</div>
+                    <div class="arrow-dropdown"></div>
+                </div>
             </div>
             <button class="copy-link-btn">
                 <span class="material-symbols-outlined">link</span>Copy link
@@ -187,6 +205,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const shareInput = document.getElementById("share-input");
     const closeBtn = document.querySelector(".popup-close-btn");
     const permissionSelect = document.querySelector(".permission-select");
+    const permissionLink = document.querySelector(".permission-link");
+    const updateTextPermission = document.querySelector(".update-text-permission");
+    const updateTextLink = document.querySelector(".update-text-link");
+    const statusText = document.querySelector(".status-text");
+    const statusIcon = document.querySelector(".status-icon span.material-symbols-outlined");
 
     // Show pop-up when clicking the "SHARE" button
     const shareBtn = document.querySelector(".share-btn");
@@ -206,21 +229,29 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.classList.remove("show");       
     });
 
-    // Adjust select width based on selected option text length
+    // Adjust "permission-select" width based on selected option text length 
     permissionSelect.addEventListener("change", () => {
         const selectedIndex = permissionSelect.selectedIndex;
-        if (selectedIndex === 1 || selectedIndex === 2) { 
-            const selectedText = permissionSelect.options[selectedIndex].text;
-            const tempSpan = document.createElement("span");
-            tempSpan.style.visibility = "hidden";
-            tempSpan.style.whiteSpace = "nowrap";
-            tempSpan.innerText = selectedText;
-            document.body.appendChild(tempSpan);
-            const textWidth = tempSpan.offsetWidth;
-            permissionSelect.style.width = `${textWidth + 15}px`; 
-            document.body.removeChild(tempSpan);
+        const selectedOption = permissionSelect.options[selectedIndex];
+        const selectedText = selectedOption.getAttribute("data-display");
+
+        updateTextPermission.innerText = selectedText;
+    });
+
+    // Update display text for "permission-link"
+    permissionLink.addEventListener("change", () => {
+        const selectedIndex = permissionLink.selectedIndex;
+        const selectedOption = permissionLink.options[selectedIndex];
+        const selectedText = selectedOption.getAttribute("data-display");
+        const accessStatusText = selectedOption.getAttribute("access-display");
+
+        updateTextLink.innerText = selectedText;
+        statusText.innerText = accessStatusText;
+
+        if (selectedIndex === 1 || selectedIndex === 2) {
+            statusIcon.innerText = "language";
         } else {
-            permissionSelect.style.width = "auto"; 
+            statusIcon.innerText = "lock";
         }
     });
 });
