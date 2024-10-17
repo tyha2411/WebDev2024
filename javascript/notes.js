@@ -163,10 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="access-number">1</p>
             <div class="info">
                 <div class="personal-info">
-                    <div class="avatar">N</div>
+                    <div class="avatar">U</div>
                     <div class="name-email">
-                        <p>Nguyen Anh Duc - You</p>
-                        <p class="email">ducna.22bi13089@usth.edu.vn</p>
+                        <p>Username - You</p>
+                        <p class="email">username@gmail.com</p>
                     </div>
                 </div>
                 <div class="role">Owner</div>
@@ -253,5 +253,48 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             statusIcon.innerText = "lock";
         }
+    });
+
+    // Add new note when clicking "create-note"
+    const editorWrapper = document.querySelector(".editor-wrapper");
+    const noteBar = document.querySelector(".note-bar");
+    const createNote = document.querySelector(".create-note");
+    const noteNumber = document.querySelector(".note-number");
+    
+    createNote.addEventListener("click", () => {
+        const activeNote = document.querySelector(".note-element.active");
+        if (activeNote) {
+            activeNote.classList.remove("active");
+        }
+       
+        const newNoteElement = document.createElement("div");
+        newNoteElement.classList.add("note-element", "active");
+        newNoteElement.innerHTML = `
+        <p class="title">Untitled</p>
+        <p class="created-time">Just now</p>
+        `;
+       
+        newNoteElement.addEventListener("click", () => {
+            const activeNote = document.querySelector(".note-element.active");
+                if (activeNote) {
+                    activeNote.classList.remove("active");
+                }
+                newNoteElement.classList.add("active");
+        });
+        
+        noteBar.insertBefore(newNoteElement, noteBar.firstChild);
+
+        const noteCount = noteBar.querySelectorAll(".note-element").length;
+        if (noteCount === 1) {
+            noteNumber.textContent = "1 note";
+        } else {
+            noteNumber.textContent = `${noteCount} notes`;
+        }
+
+       if (noteCount > 0) {
+        editorWrapper.classList.add("flex");
+       } else {
+        editorWrapper.classList.remove("flex");
+       }
     });
 });

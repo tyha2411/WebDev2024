@@ -29,17 +29,85 @@ body {
     height: 100%;
 }
 
-.note-list h2 {
-    margin: 19px 20px;
+.note-header {
+    margin: 20px 0;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.note-header h2:hover {
+    cursor: default;
+}
+
+.create-note {
+    color: #4d64ff;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.create-note:hover {
+    cursor: pointer;
+    color: #3245bb;
+}
+
+.note-number {
+    margin: 20px;
+    color: #9e9e9e;
+}
+
+.note-number:hover {
+    cursor: default;
+}
+
+.note-element {
+    width: 92%;
+    height: 140px; 
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+}
+
+.note-element:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.note-element.active {
+    background-color: white;
+    border: 1px solid #4d64ff;
+    border-radius: 4px;
+}
+
+.note-element .title {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.note-element .created-time {
+    font-size: 0.8em;
+    color: #808080;
 }
 
 .editor-wrapper {
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 74%;
     height: 100%;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
+}
+
+.editor-wrapper.flex {
+    display: flex;
 }
 
 .editor-wrapper.fullscreen {
