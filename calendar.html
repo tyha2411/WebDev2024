@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Calendar</h1>
+            <div class="date" id="selected-date">Wednesday, October 9, 2024</div>
+            <div class="calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sun</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td onclick="selectDate('2024-10-01')">1</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectDate('2024-10-02')">2</td>
+                            <td onclick="selectDate('2024-10-03')">3</td>
+                            <td onclick="selectDate('2024-10-04')">4</td>
+                            <td onclick="selectDate('2024-10-05')">5</td>
+                            <td onclick="selectDate('2024-10-06')">6</td>
+                            <td onclick="selectDate('2024-10-07')">7</td>
+                            <td onclick="selectDate('2024-10-08')">8</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectDate('2024-10-09')">9</td>
+                            <td onclick="selectDate('2024-10-10')">10</td>
+                            <td onclick="selectDate('2024-10-11')">11</td>
+                            <td onclick="selectDate('2024-10-12')">12</td>
+                            <td onclick="selectDate('2024-10-13')">13</td>
+                            <td onclick="selectDate('2024-10-14')">14</td>
+                            <td onclick="selectDate('2024-10-15')">15</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectDate('2024-10-16')">16</td>
+                            <td onclick="selectDate('2024-10-17')">17</td>
+                            <td onclick="selectDate('2024-10-18')">18</td>
+                            <td onclick="selectDate('2024-10-19')">19</td>
+                            <td onclick="selectDate('2024-10-20')">20</td>
+                            <td onclick="selectDate('2024-10-21')">21</td>
+                            <td onclick="selectDate('2024-10-22')">22</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectDate('2024-10-23')">23</td>
+                            <td onclick="selectDate('2024-10-24')">24</td>
+                            <td onclick="selectDate('2024-10-25')">25</td>
+                            <td onclick="selectDate('2024-10-26')">26</td>
+                            <td onclick="selectDate('2024-10-27')">27</td>
+                            <td onclick="selectDate('2024-10-28')">28</td>
+                            <td onclick="selectDate('2024-10-29')">29</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectDate('2024-10-30')">30</td>
+                            <td onclick="selectDate('2024-10-31')">31</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="my-calendars">
+                <h2>MY CALENDARS</h2>
+                <ul class="calendar-list">
+                    <li><i class="fab fa-evernote" style="color: #2ecc71;"></i> <span>Evernote Calendar</span></li>
+                    <li>
+                        <input type="checkbox" id="events-checkbox" checked>
+                        <label for="events-checkbox"><i class="fas fa-circle" style="color: #2ecc71;"></i> Events</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="tasks-checkbox" checked>
+                        <label for="tasks-checkbox"><i class="fas fa-circle" style="color: #9b59b6;"></i> Tasks</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="connect-calendar">
+                <h2>CONNECT A CALENDAR</h2>
+                <button><i class="fab fa-google"></i> Google</button>
+                <button><i class="fab fa-microsoft"></i> Outlook</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="actions">
+                    <a id="new-event-btn"><i class="fas fa-calendar-plus"></i> New Event</a>
+                </div>
+                <div class="view-selector">
+                    <select id="view-selector">
+                        <option value="day">Day</option>
+                        <option value="week">Week</option>
+                        <option value="month">Month</option>
+                    </select>
+                    <button id="today-btn">Today</button>
+                </div>
+            </div>
+            <div class="time-slots" id="time-slots">
+                <!-- Time slots will be dynamically generated here -->
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="event-modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <h2>Create New Event</h2>
+        <input type="date" id="event-date" placeholder="Date">
+        <input type="time" id="start-time" placeholder="Start Time">
+        <input type="time" id="end-time" placeholder="End Time">
+        <input type="text" id="event-name" placeholder="Event Name">
+        <button id="save-event">Save Event</button>
+    </div>
+    <script>
+        document.getElementById('new-event-btn').addEventListener('click', function() {
+            document.getElementById('event-modal').style.display = 'block';
+        });
+
+        document.getElementById('modal-close').addEventListener('click', function() {
+            document.getElementById('event-modal').style.display = 'none';
+        });
+
+        document.getElementById('save-event').addEventListener('click', function() {
+            // Add your event saving logic here
+            document.getElementById('event-modal').style.display = 'none';
+        });
+
+        function selectDate(date) {
+            const dateObj = new Date(date);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('selected-date').innerText = dateObj.toLocaleDateString('en-US', options);
+            document.getElementById('event-date').value = date;
+            updateView();
+
+            // Highlight the selected date
+            const cells = document.querySelectorAll('.calendar td');
+            cells.forEach(cell => {
+                cell.classList.remove('highlighted');
+                if (cell.innerText == dateObj.getDate()) {
+                    cell.classList.add('highlighted');
+                }
+            });
+        }
+
+        document.getElementById('today-btn').addEventListener('click', function() {
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('selected-date').innerText = today.toLocaleDateString('en-US', options);
+            document.getElementById('event-date').value = today.toISOString().split('T')[0];
+            updateView();
+
+            // Highlight the selected date
+            const cells = document.querySelectorAll('.calendar td');
+            cells.forEach(cell => {
+                cell.classList.remove('highlighted');
+                if (cell.innerText == today.getDate()) {
+                    cell.classList.add('highlighted');
+                }
+            });
+        });
+
+        document.getElementById('view-selector').addEventListener('change', function() {
+            updateView();
+        });
+
+        function updateView() {
+            const view = document.getElementById('view-selector').value;
+            const timeSlots = document.getElementById('time-slots');
+            timeSlots.innerHTML = '';
+
+            if (view === 'day') {
+                timeSlots.style.gridTemplateColumns = '1fr';
+                for (let i = 6; i <= 23; i++) {
+                    const time = i > 12 ? `${i - 12} PM` : `${i} AM`;
+                    timeSlots.innerHTML += `<div class="time">${time}</div>`;
+                }
+            } else if (view === 'week') {
+                timeSlots.style.gridTemplateColumns = 'repeat(8, 1fr)';
+                const days = ['Time', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                for (let i = 0; i < days.length; i++) {
+                    timeSlots.innerHTML += `<div>${days[i]}</div>`;
+                }
+                for (let j = 6; j <= 23; j++) {
+                    const time = j > 12 ? `${j - 12} PM` : `${j} AM`;
+                    timeSlots.innerHTML += `<div class="time">${time}</div>`;
+                    for (let k = 1; k < days.length; k++) {
+                        timeSlots.innerHTML += `<div></div>`;
+                    }
+                }
+            } else if (view === 'month') {
+                timeSlots.style.gridTemplateColumns = 'repeat(7, 1fr)';
+                const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                for (let i = 0; i < days.length; i++) {
+                    timeSlots.innerHTML += `<div>${days[i]}</div>`;
+                }
+                const totalDays = 31; // Assuming 31 days in the month for simplicity
+                for (let day = 1; day <= totalDays; day++) {
+                    timeSlots.innerHTML += `<div>${day}</div>`;
+                }
+            }
+        }
+
+        // Initialize view
+        updateView();
+    </script>
+</body>
+</html>
