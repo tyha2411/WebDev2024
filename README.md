@@ -12,5 +12,5 @@ Student Info
 
 * Name: *Hoang Ky Duyen*
 * ID: *22BI13128*
-* Group ID: *Your Group ID here*
-* Project Name: *Your Project Name here*
+* Group ID: *Group number 5*
+* Project Name: *Collaborative Note-Taking App*
