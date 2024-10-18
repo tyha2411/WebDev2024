@@ -6,8 +6,8 @@
     <title>Note-Taking</title>
     
     <!-- Main -->
-    <link rel="stylesheet" href="notes.css">
-    <script src="notes.js"></script>
+    <link rel="stylesheet" href="css/notes.css">
+    <script src="javascript/notes.js"></script>
     
     <!-- Text editor -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -24,7 +24,17 @@
 <body>
     <div class="note-container">
         <div class="note-list">
-            <h2>Notes</h2>
+            <div class="note-header">
+                <h2>Notes</h2>
+                <div class="create-note">+ New Note</div>
+            </div>
+            <p class="note-number">0 notes</p>
+            <div class="note-begin">
+                <img src="image/note-image.png" alt="Note image">
+                <p><b>It all begins with notes</b></p>
+                <p>Click the + New Note button in the sidebar to create a note.</p>
+            </div>
+            <div class="note-bar"></div>
         </div>
         <div class="editor-wrapper">
             <div class="toolbar-upper"></div>
