@@ -213,5 +213,11 @@ function showFilePreview(fileElement) {
 }
 
 function goToNote() {
-    window.location.href = 'note.html'; // Navigate to note.html
+    const noteContainer = document.querySelector(".note-container");
+    const goToNote = document.querySelector(".go-to-note");
+    const fileContainer = document.querySelector(".container");
+    goToNote.addEventListener("click", () => {
+        noteContainer.classList.add("active");
+        fileContainer.classList.remove("active");
+    });
 }
