@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Files</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="files.css">
+        <script src="files.js"></script>
+    </head>
+    <body>
+        <div class="container">
+         <div class="sidebar">
+          <h1>
+           Files
+          </h1>
+          <div class="elements-count">
+           <span id="fileCount">0 elements</span>
+           <div class="icons">
+            <i class="fas fa-plus" onclick="triggerUpload()">
+            </i>
+            <input class="upload-input" id="uploadInput" onchange="handleFileUpload(event)" type="file" multiple/>
+            <i class="fas fa-sort" onclick="toggleSortOptions()">
+            </i>
+            <div class="sort-options" id="sortOptions">
+             <ul>
+              <li class="ascending" onclick="toggleSortOrder(event)">Sort by Recent</li>
+              <li class="" onclick="toggleSortOrder(event)">Sort by Title</li>
+              <li class="" onclick="toggleSortOrder(event)">Sort by File Size</li>
+              <li class="separator" onclick="toggleSortOrder(event)">Sort by File Kind</li>
+              <li onclick="toggleSelection(event)" class="selected">Show File Size</li>
+              <li onclick="toggleSelection(event)" class="">Show File Position</li>
+             </ul>
+            </div>
+           </div>
+          </div>
+          <div class="search-box">
+           <input id="searchInput" onkeyup="searchFiles()" placeholder="Search file" type="text"/>
+           <i class="fas fa-search">
+           </i>
+          </div>
+          <div class="filter-options" id="filterOptions">
+           <ul>
+            <li onclick="filterFiles('all')">All Files</li>
+            <li onclick="filterFiles('image')">Images</li>
+            <li onclick="filterFiles('doc')">Docs</li>
+           </ul>
+          </div>
+          <div class="info" id="info">
+           <img alt="Pink paper with a white paperclip" src="/WebDev2024/image/papernote.jpg"/>
+           <p>
+            Manage your important files in Evernote
+           </p>
+           <p>
+            Click the add file button above to upload your first attachment
+           </p>
+          </div>
+          <div class="file-list" id="fileListContainer" style="display: none;">
+           <ul id="fileList">
+           </ul>
+          </div>
+         </div>
+         <div class="main-content">
+          <div class="taskbar" id="taskbar" style="display: none;">
+              <span class="file-name"></span>
+              <span class="go-to-note" onclick="goToNote()">Go to Note</span>
+              <i class="fas fa-download" id="downloadButton" ></i>
+          </div>
+          <div class="no-preview">
+           <h2>
+            No preview available
+           </h2>
+           <p>
+            Try using a different keyword
+           </p>
+          </div>
+          <div class="file-preview" id="filePreview">
+          </div>
+         </div>
+        </div>
+       </body>
+</html>

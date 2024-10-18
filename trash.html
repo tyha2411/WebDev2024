@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trash</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Trash (<span id="note-count">0</span>)</h2>
+            <ul id="note-list">
+                <!-- Notes will be dynamically added here -->
+            </ul>
+            <button id="empty-trash-btn">Empty Trash</button>
+        </div>
+        <div class="note-display">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2 id="note-title">Select a note</h2>
+                <button id="delete-note-btn" style="display: none;">Delete</button>
+            </div>
+            <p id="note-content">Note content will appear here.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
