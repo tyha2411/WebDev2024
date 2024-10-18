@@ -12,6 +12,7 @@ body {
     margin: 7px;
     display: none;
     flex-direction: row;
+    transition: all 0.5s ease;
 }
 .container.active {
     display: flex;

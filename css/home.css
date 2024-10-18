@@ -62,7 +62,7 @@ body {
     width: 80px;
 }
 
-.sidebar.active ~ .main_content {
+.sidebar.active ~ .main_content, .sidebar.active ~ .note-container, .sidebar.active ~ .container {
     margin-left: 130px;
     width: calc(100% - 80px);
 }
