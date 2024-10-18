@@ -62,14 +62,14 @@ body {
 }
 
 .note-element {
-    width: 92%;
+    width: 100%;
     height: 140px; 
     margin: auto;
     display: flex;
+    padding: 20px;
     flex-direction: column;
     justify-content: center;
     gap: 15px;
-    padding: 20px;
     border-bottom: 1px solid #ddd;
     border-top: 1px solid transparent;
     border-right: 1px solid transparent;
@@ -95,6 +95,49 @@ body {
 .note-element .created-time {
     font-size: 0.8em;
     color: #808080;
+}
+
+.note-begin {
+    width: 100%;
+    height: 88%;
+    text-align: center;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9em;
+}
+
+.note-begin img {
+    width: 170px;
+    height: 170px;
+    margin-left: 55px;
+}
+
+.note-bar {
+    overflow: hidden;
+    height: 88%;
+    width: 93%;
+    margin: auto;
+    transition: all 0.3s;
+}
+
+.note-bar:hover {
+    overflow: auto;
+}
+
+.note-bar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.note-bar::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 6px;
+}
+
+.note-bar::-webkit-scrollbar-thumb:hover {
+    background-color: #737373;
 }
 
 .editor-wrapper {

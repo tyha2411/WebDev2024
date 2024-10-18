@@ -260,8 +260,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const noteBar = document.querySelector(".note-bar");
     const createNote = document.querySelector(".create-note");
     const noteNumber = document.querySelector(".note-number");
+    const noteBegin = document.querySelector(".note-begin");
     
     createNote.addEventListener("click", () => {
+        noteBegin.style.display = "none";
         const activeNote = document.querySelector(".note-element.active");
         if (activeNote) {
             activeNote.classList.remove("active");
