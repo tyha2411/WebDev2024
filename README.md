@@ -10,9 +10,7 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: Tạ Minh Đức
-* ID: 22BI13098
+* Name: Cao Thái Hà
+* ID: 22BI13136
 * Group ID: 5
-* Project Name: Collaborative Note-Taking App 
-=======
-
+* Project Name: Collaborative Note-Taking App
