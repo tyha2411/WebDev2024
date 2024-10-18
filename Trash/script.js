@@ -49,3 +49,40 @@ document.getElementById('empty-trash-btn').addEventListener('click', function ()
         noteContent.textContent = 'Note content will appear here when you click a note.';
     }
 });
+
+let selectedNoteId = null; // Track the currently selected note
+
+// Get reference to the delete button
+const deleteNoteBtn = document.getElementById('delete-note-btn');
+
+// Update the function to show the delete button when a note is selected
+noteList.addEventListener('click', function (e) {
+    if (e.target.tagName === 'LI') {
+        const selectedNote = notes.find(note => note.id == e.target.dataset.id);
+        noteTitle.textContent = selectedNote.title;
+        noteContent.textContent = selectedNote.content;
+        selectedNoteId = selectedNote.id;
+
+        // Show the delete button when a note is selected
+        deleteNoteBtn.style.display = 'inline-block';
+    }
+});
+
+// Add delete functionality
+deleteNoteBtn.addEventListener('click', function () {
+    if (selectedNoteId !== null) {
+        if (confirm('Are you sure you want to delete this note?')) {
+            // Find index of the selected note and remove it from the array
+            const noteIndex = notes.findIndex(note => note.id == selectedNoteId);
+            if (noteIndex !== -1) {
+                notes.splice(noteIndex, 1); // Remove the selected note
+                populateNotes(); // Update the note list
+                noteTitle.textContent = 'Select a note';
+                noteContent.textContent = 'Note content will appear here when you click a note.';
+                deleteNoteBtn.style.display = 'none'; // Hide the delete button
+                selectedNoteId = null; // Reset the selected note
+            }
+        }
+    }
+});
+

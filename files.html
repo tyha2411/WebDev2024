@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Note-Taking</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="files.css">
+    <script src="files.js" defer></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="user-info">
+            <img alt="User profile picture" src="/image/colepalmer.jpg" />
+            <div>
+                <p>User</p>
+                <p>User@gmail.com</p>
+            </div>
+        </div>
+            <input type="text" placeholder="Search" />
+        <div class="buttons">
+            <button class="note">+ Note</button>
+            <button class="task">+ Task</button>
+            <button class="event">+ Event</button>
+        </div>
+        <ul class="menu">
+            <li><a href="#" onclick="showHome()"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fas fa-star"></i>Shortcuts</a></li>
+            <li><a href="#"><i class="fas fa-sticky-note"></i>Notes</a></li>
+            <li><a href="#"><i class="fas fa-check-circle"></i>Tasks</a></li>
+            <li><a href="#" onclick="showFiles()"><i class="fas fa-folder"></i>Files</a></li>
+            <li><a href="#"><i class="fas fa-calendar-alt"></i>Calendar</a></li>
+            <li><a href="#"><i class="fas fa-trash-alt"></i>Trash</a></li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        <div class="frame">
+            <div class="search-bar">
+                <input type="text" placeholder="Search file" />
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="file-info">
+                <h2>Files</h2>
+                <img alt="Placeholder image of a file with a paperclip" src="https://storage.googleapis.com/a1aa/image/5GeJibOg3m08ayP09ohBEsg1ejZyfpynoTYqOXbKBOchkiJnA.jpg" />
+                <p>Manage your important files in Evernote</p>
+                <p>Click the add file button below to upload your first attachment</p>
+                
+                <div class="upload-section">
+                    <input type="file" id="file-upload" style="display: none;" />
+                    <label for="file-upload" class="upload-button">Upload File</label>
+                </div>
+                
+                <div id="uploaded-files"></div> <!-- Section for uploaded files -->
+
+
+            </div>
+        </div>
+    </div>
+    <div class="file-content" id="file-content">
+    </div>
+    
+</body>
+</html>

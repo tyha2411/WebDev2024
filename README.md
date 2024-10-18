@@ -10,7 +10,10 @@ Students are expected to:
 Student Info
 =======================
 
+>>>>>>> HEAD
 * Name: Tạ Minh Đức
 * ID: 22BI13098
 * Group ID: 5
 * Project Name: Collaborative Note-Taking App 
+=======
+
