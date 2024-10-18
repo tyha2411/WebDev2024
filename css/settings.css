@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 20px;
+}
+
+
+.settings-container {
+    width: 90%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.settings-section {
+    margin-bottom: 30px;
+}
+
+.settings-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap; 
+}
+
+.setting-item h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.setting-item p {
+    color: #777;
+}
+
+
+.setting-item select, .setting-item button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Toggle styles */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.4s;
+    top: 2px;
+    left: 2px;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Custom theme handling */
+:root {
+    --bg-color: #fff;
+    --text-color: #333;
+    --border-color: #ddd;
+}
+
+[data-theme="dark"] {
+    --bg-color: #333;
+    --text-color: #fff;
+    --border-color: #555;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.settings-container {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.setting-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+@media (max-width: 768px) {
+    .settings-container {
+        width: 95%; 
+    
+    .setting-item {
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 10px; 
+
+    .setting-item select, .setting-item button {
+        width: 100%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-section h2 {
+        font-size: 1.2rem; 
+    }
+
+    .setting-item h3 {
+        font-size: 0.9rem; 
+
+    .settings-container {
+        padding: 15px; 
+    }
+}
