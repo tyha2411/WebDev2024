@@ -19,4 +19,4 @@ document.addEventListener('mousemove', (e) => {
 
     const newWidth = e.clientX - sidebar.getBoundingClientRect().left;
     sidebar.style.width = `${newWidth}px`; // Set new width of the sidebar
-});
+}); 
