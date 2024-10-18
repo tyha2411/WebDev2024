@@ -1,230 +1,164 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-}
-
-.sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #ffffff;
-    padding: 20px;
-    position: fixed;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar input[type="text"] {
-    width: 90%;
-    max-width: 220px;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-    color: #333;
-    box-sizing: border-box;
-}
-
-.sidebar img {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-}
-
-.sidebar .user-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.sidebar .user-info div {
-    margin-left: 10px;
-}
-
-.sidebar .user-info div p {
     margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
 }
 
-.sidebar input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-    color: #333;
-}
-
-.sidebar .buttons {
+.container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.sidebar .buttons button {
-    width: 30%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.sidebar .buttons .note {
-    background-color: #1e88e5;
-}
-
-.sidebar .buttons .task {
-    background-color: #9c27b0;
-}
-
-.sidebar .buttons .event {
-    background-color: #fbc02d;
-}
-
-.sidebar .menu {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar .menu li {
-    margin: 10px 0;
-}
-
-.sidebar .menu li a {
-    text-decoration: none;
-    color: #333;
+.actions-container {
     display: flex;
     align-items: center;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    cursor: pointer;
+    gap: 10px;
 }
 
-.sidebar .menu li a:hover {
-    background-color: #e0e0e0;
-}
-
-.sidebar .menu li a i {
-    margin-right: 10px;
-}
-
-.main-content {
-    margin-left: 270px;
-    padding: 20px;
-    display: none;
-    height: 100vh;
-    width: 250px;
-    position: fixed;
-    background-color: #ffffff;
-    color: #333;
-}
-
-.main-content .frame {
-    border: 1px solid #e0e0e0;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.content table {
     width: 100%;
-    height: calc(100vh - 40px);
-    box-sizing: border-box;
-}
-
-.main-content .search-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.main-content .search-bar input[type="text"] {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-    color: #333;
-    width: 150px;
-}
-
-.main-content .search-bar button {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-    color: #333;
-    margin-left: 8px;
-    cursor: pointer;
-}
-
-.main-content .file-info {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.main-content .file-info img {
-    width: 80px;
-    height: 80px;
-}
-
-.upload-section {
+    border-collapse: collapse;
     margin-top: 20px;
 }
 
-.upload-button {
-    display: inline-block;
-    padding: 10px 20px;
+.content tr{
+    border-bottom: 1px solid #ddd;
+}
+
+.content th, .content td {
+    border: none;
+    padding: 8px;
+    text-align: left;
+}
+
+.actions {
+    position: relative;
+}
+
+.actions .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.actions .dropdown button {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.actions .dropdown button:hover {
+    background-color: #f1f1f1;
+}
+
+.sort-button {
+    position: relative;
+}
+
+.sort-button .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.sort-button .dropdown button {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sort-button .dropdown button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.modal button {
+    margin-top: 10px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    background-color: #1e88e5;
-    color: #fff;
     cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s;
 }
 
-.upload-button:hover {
-    background-color: #1565c0;
+.modal button.cancel {
+    background-color: #f44336;
+    color: white;
 }
 
-.file-container {
-    border: 1px solid #e0e0e0;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    margin: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.modal button.create {
+    background-color: #4CAF50;
+    color: white;
 }
 
-.file-info p {
-    margin: 0;
+.collapse-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.collapse-btn:hover {
     color: #333;
+    background-color: #eee;
+    border-radius: 4px;
 }
 
-.frame {
-    text-align: center;
-    margin-top: 15px;
-    max-height: 800px;
-    overflow-y: auto;
-    border: 1px solid #e0e0e0;
-    padding: 10px;
+.collapse-btn i {
+    font-size: 1.2em;
+    transition: transform 0.2s;
 }
 
-.file-content {
-    margin-left: 270px;
-    padding: 20px;
-    background-color: #ffffff;
-    color: #333;
-    height: calc(100vh - 40px);
-    overflow-y: auto;
-    border: 1px solid #e0e0e0;
-    transition: transform 0.3s ease;
-}
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
 
-.file-content.shrink {
-    transform: scale(0.9);
+    .actions-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
