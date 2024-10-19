@@ -1,8 +1,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: #ffffff;
+    background-color: #ffffff; /* Changed to light background */
+    color: #000000; /* Changed to dark text */
 }
 .container {
     display: flex;
@@ -11,8 +11,8 @@ body {
 .sidebar {
     width: 300px;
     padding: 20px;
-    background-color: #2b2b2b;
-    border-right: 1px solid #444;
+    background-color: #f2f2f2; /* Lighter sidebar background */
+    border-right: 1px solid #ddd; /* Light border */
 }
 .main-content {
     flex-grow: 1;
@@ -25,7 +25,7 @@ h1 {
 }
 .date {
     font-size: 18px;
-    color: #888;
+    color: #555; /* Darker gray for the date */
     margin-bottom: 20px;
 }
 .calendar {
@@ -38,18 +38,18 @@ h1 {
 .calendar th, .calendar td {
     text-align: center;
     padding: 5px;
-    border: 1px solid #444;
+    border: 1px solid #ddd; /* Lighter border for calendar */
     cursor: pointer;
 }
 .calendar th {
-    color: #888;
+    color: #555; /* Lighter text for table headers */
 }
 .calendar .selected {
-    background-color: #3a3a3a;
+    background-color: #e0e0e0; /* Lighter selected cell */
     border-radius: 50%;
 }
 .calendar .highlighted {
-    background-color: #2ecc71;
+    background-color: #8bc34a; /* Highlight color */
     border-radius: 50%;
 }
 .my-calendars, .connect-calendar {
@@ -72,7 +72,7 @@ h1 {
     margin-right: 10px;
 }
 .calendar-list li span {
-    color: #888;
+    color: #555; /* Changed to darker gray */
 }
 .calendar-list li input[type="checkbox"] {
     margin-right: 10px;
@@ -83,9 +83,9 @@ h1 {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #3a3a3a;
+    background-color: #e0e0e0; /* Light button background */
     border: none;
-    color: #fff;
+    color: #000; /* Dark text for buttons */
     cursor: pointer;
 }
 .connect-calendar button i {
@@ -102,27 +102,27 @@ h1 {
     align-items: center;
 }
 .top-bar .actions a {
-    color: #888;
+    color: #555; /* Lighter action link color */
     margin-right: 20px;
     text-decoration: none;
     cursor: pointer;
 }
 .top-bar .actions a:hover {
-    color: #fff;
+    color: #000;
 }
 .top-bar .view-selector {
     display: flex;
     align-items: center;
 }
 .top-bar .view-selector select {
-    background-color: #3a3a3a;
-    color: #fff;
+    background-color: #e0e0e0; /* Lighter dropdown background */
+    color: #000;
     border: none;
     padding: 5px;
 }
 .top-bar .view-selector button {
-    background-color: #3a3a3a;
-    color: #fff;
+    background-color: #e0e0e0; /* Lighter button background */
+    color: #000;
     border: none;
     padding: 5px 10px;
     margin-left: 10px;
@@ -131,11 +131,11 @@ h1 {
 .time-slots {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    border-top: 1px solid #444;
+    border-top: 1px solid #ddd; /* Light border for time slots */
 }
 .time-slots div {
-    border-bottom: 1px solid #444;
-    color: #888;
+    border-bottom: 1px solid #ddd; /* Light border for time slot rows */
+    color: #555; /* Darker text for time slots */
     padding: 10px;
     text-align: center;
 }
@@ -149,29 +149,29 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #2b2b2b;
+    background-color: #f2f2f2; /* Light background for modal */
     padding: 20px;
-    border: 1px solid #444;
+    border: 1px solid #ddd;
     z-index: 1000;
 }
 .modal input, .modal select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #3a3a3a;
+    background-color: #e0e0e0; /* Light input background */
     border: none;
-    color: #fff;
+    color: #000; /* Dark text for input */
 }
 .modal button {
     width: 100%;
     padding: 10px;
-    background-color: #3a3a3a;
+    background-color: #e0e0e0;
     border: none;
-    color: #fff;
+    color: #000;
     cursor: pointer;
 }
 .modal button:hover {
-    background-color: #444;
+    background-color: #ddd; /* Slightly darker hover */
 }
 .modal-close {
     position: absolute;
