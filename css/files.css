@@ -1,26 +1,35 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: transparent;
     color: #333333;
 }
 .container {
-    display: flex;
-    height: 100vh;
+    position: absolute;
+    right: 0px;
+    width: 84%;
+    height: calc(100% - 15px);
+    margin: 7px;
+    display: none;
+    flex-direction: row;
+    transition: all 0.5s ease;
 }
-.sidebar {
-    width: 300px;
-    background: linear-gradient(to bottom, #ffffff, #f4f4f4);
+.container.active {
+    display: flex;
+}
+.sidebar-hacao {
+    width: 26%;
+    background-color: transparent;
     padding: 20px;
     box-sizing: border-box;
     position: relative;
 }
-.sidebar h1 {
+.sidebar-hacao h1 {
     font-size: 24px;
     margin: 0 0 10px;
     color: #333333;
 }
-.sidebar .elements-count {
+.sidebar-hacao .elements-count {
     font-size: 14px;
     color: #666666;
     margin-bottom: 20px;
@@ -28,20 +37,20 @@ body {
     align-items: center;
     justify-content: space-between;
 }
-.sidebar .icons {
+.sidebar-hacao .icons {
     display: flex;
     gap: 10px;
     position: relative;
 }
-.sidebar .icons i {
+.sidebar-hacao .icons i {
     color: #666666;
     cursor: pointer;
 }
-.sidebar .search-box {
+.sidebar-hacao .search-box {
     position: relative;
     margin-bottom: 20px;
 }
-.sidebar .search-box input {
+.sidebar-hacao .search-box input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -50,25 +59,25 @@ body {
     color: #333333;
     box-sizing: border-box;
 }
-.sidebar .search-box i {
+.sidebar-hacao .search-box i {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
     color: #666666;
 }
-.sidebar .filter-options {
+.sidebar-hacao .filter-options {
     display: none;
     margin-bottom: 20px;
 }
-.sidebar .filter-options ul {
+.sidebar-hacao .filter-options ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     gap: 10px;
 }
-.sidebar .filter-options ul li {
+.sidebar-hacao .filter-options ul li {
     flex: 1;
     text-align: center;
     padding: 5px 10px;
@@ -77,22 +86,26 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-.sidebar .filter-options ul li:hover {
+.sidebar-hacao .filter-options ul li:hover {
     background-color: #e0e0e0;
 }
-.sidebar .info {
+.sidebar-hacao .info {
     text-align: center;
+    display: flex;
+    align-items: center;
     margin-top: auto;
+    flex-direction: column;
 }
-.sidebar .info img {
+.sidebar-hacao .info img {
     width: 150px;
     height: 150px;
     margin-bottom: 20px;
 }
-.sidebar .info p {
+.sidebar-hacao .info p {
     margin: 0;
     font-size: 16px;
     color: #666666;
+    line-height: 25px;
 }
 .main-content {
     flex-grow: 1;
@@ -101,6 +114,8 @@ body {
     align-items: center;
     background-color: #ffffff;
     position: relative;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
 }
 .main-content .taskbar {
     width: 100%;

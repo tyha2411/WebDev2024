@@ -110,14 +110,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     expandCollapseBtn.addEventListener("click", () => {
+        const sideBar = document.querySelector(".sidebar");
         document.querySelector(".editor-wrapper").classList.toggle("fullscreen");
         const icon = expandCollapseBtn.querySelector(".material-symbols-outlined");
         if (icon.textContent === "open_in_full") {
             icon.textContent = "close_fullscreen";
             expandCollapseBtn._tippy.setContent("Collapse note");
+            sideBar.style.display = "none";
         } else {
             icon.textContent = "open_in_full";
             expandCollapseBtn._tippy.setContent("Expand note");
+            sideBar.style.display = "block";
         }
     });
 

@@ -8,18 +8,23 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     color: #333;
-    padding: 20px;
 }
 
-
 .settings-container {
-    width: 90%; 
-    max-width: 600px; 
-    margin: 0 auto; 
+    position: absolute;
+    width: 55%; 
+    left: 30%;
+    height: calc(100% - 15px); 
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
+    display: none;
+    margin-top: 7px;
+}
+
+.settings-container.active {
+    display: block;
 }
 
 .settings-section {
