@@ -6,19 +6,29 @@ body {
     background-color: #f4f4f4;
 }
 
-.container {
-    display: flex;
-    width: 100%;
+.trash-container {
+    position: absolute;
+    right: 0px;
+    width: 84%;
+    height: calc(100% - 15px);
+    margin: 7px;
+    display: none;
+    flex-direction: row;
+    transition: all 0.5s ease;
 }
 
-.sidebar {
+.trash-container.active {
+    display: flex;
+}
+
+.trash-sidebar {
     width: 30%;
     background-color: #f1f1f1;
     padding: 20px;
     border-right: 1px solid #ccc;
 }
 
-.sidebar h2 {
+.trash-sidebar h2 {
     font-size: 20px;
     margin-bottom: 10px;
 }
@@ -40,7 +50,7 @@ body {
     background-color: #e0e0e0;
 }
 
-button {
+#empty-trash-btn {
     margin-top: 20px;
     padding: 10px;
     width: 100%;
@@ -50,7 +60,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+#empty-trash-btn:hover {
     background-color: #ff4b4b;
 }
 
@@ -71,14 +81,18 @@ button:hover {
 
 #delete-note-btn {
     color: white;
-    padding: 8px 16px;
+    padding: 2px 2px;
     border: black;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background-color: #ff6b6b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #delete-note-btn:hover {
     background-color: #ff2b2b;
 }
-

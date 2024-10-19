@@ -160,25 +160,58 @@ document.addEventListener("DOMContentLoaded", () => {
   const displayNotes = document.querySelector(".display-notes");
   const displayHome = document.querySelector(".display-home");
   const displayFiles = document.querySelector(".display-files");
+  const displayTrash = document.querySelector(".display-trash");
+  const displaySettings = document.querySelector(".display-settings");
   
   const noteContainer = document.querySelector(".note-container");
   const mainContent = document.querySelector(".main_content");
   const fileContainer = document.querySelector(".container");
+  const trashContainer = document.querySelector(".trash-container");
+  const settingsContainer = document.querySelector(".settings-container");
+  const logOut = document.querySelector(".log-out");
 
   displayNotes.addEventListener("click", () => {
     mainContent.style.display = "none";
     noteContainer.classList.add("active");
-    fileContainer.classList.remove("active")
+    fileContainer.classList.remove("active");
+    trashContainer.classList.remove("active");
+    settingsContainer.classList.remove("active");
   });
+
   displayHome.addEventListener("click", () => {
     mainContent.style.display = "block";
     noteContainer.classList.remove("active");
     fileContainer.classList.remove("active");
+    trashContainer.classList.remove("active");
+    settingsContainer.classList.remove("active");
   });
+
   displayFiles.addEventListener("click", () => {
     mainContent.style.display = "none";
     fileContainer.classList.add("active");
     noteContainer.classList.remove("active");
+    trashContainer.classList.remove("active");
+    settingsContainer.classList.remove("active");
   }); 
-  
+
+  displayTrash.addEventListener("click", () => {
+    trashContainer.classList.add("active");
+    mainContent.style.display = "none";
+    noteContainer.classList.remove("active");
+    fileContainer.classList.remove("active");
+    settingsContainer.classList.remove("active");
+  });
+
+  displaySettings.addEventListener("click", () => {
+    settingsContainer.classList.add("active");
+    mainContent.style.display = "none";
+    noteContainer.classList.remove("active");
+    fileContainer.classList.remove("active");
+    trashContainer.classList.remove("active");
+  });
+
+  logOut.addEventListener('click', function(event) {
+    event.preventDefault();
+    window.location.href = "login.html";
+  });
 });

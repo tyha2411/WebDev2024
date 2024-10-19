@@ -26,7 +26,7 @@ body {
     width: 250px;
     border: 1px solid gray;
     transition: all 0.5s ease;
-    z-index: 99999;
+    z-index: 1;
 }
 
 .sidebar_container{
@@ -196,7 +196,7 @@ body {
 /* navigation */
 
 .sidebar.active .navigation .text,
-.sidebar.active .help .text {
+.sidebar.active .log-out .text {
     display: none;
 }
 
@@ -249,30 +249,32 @@ body {
 .navigation ul :hover {
     background: #e6e6e6;
     border-radius: 5px;
-    margin-right: 10px;
+    cursor: pointer;
 }
 
 .navigation_item .material-symbols-outlined,
-.help_item .material-symbols-outlined {
+.log-out .material-symbols-outlined {
     vertical-align: middle;
     font-size: 20px;
 }
 
-.sidebar.active .help {
+.sidebar.active .log-out {
     padding: 0;
     margin: 30px;
 }
 
-.help {
+.log-out {
     position: absolute;
     bottom: 0;
     padding: 10px;
     margin: 10px;
     transition: all 0.5s ease;
 }
-.help .help_item {
-    text-decoration: none;
-    color: black;
+
+.log-out:hover {
+    cursor: pointer;
+    background: #e6e6e6;
+    border-radius: 5px;
 }
 
 /* main contents */
@@ -503,7 +505,7 @@ body {
         margin-left: 0;
     }
 
-    .help {
+    .log-out {
         position: relative;
     }
 
@@ -513,7 +515,7 @@ body {
 @media screen and (max-height: 600px) {
    
 
-    .help {
+    .log-out {
         position: relative;
     }
 
