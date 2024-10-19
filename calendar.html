@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar with Event Creation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Add basic styling for the calendar layout */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { display: flex; height: 100vh; }
+        .sidebar { width: 250px; background-color: #f4f4f4; padding: 10px; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+        .main-content { flex-grow: 1; padding: 20px; }
+        .calendar { margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; text-align: center; border: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+        .actions { margin-bottom: 20px; }
+        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); z-index: 1000; }
+        .modal input, .modal button { margin-bottom: 10px; display: block; width: 100%; padding: 8px; }
+        .modal-close { cursor: pointer; font-size: 20px; position: absolute; top: 10px; right: 10px; }
+        .event { background-color: lightblue; padding: 2px; margin: 2px; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Calendar</h1>
+            <div id="current-date"></div>
+            <div class="calendar-nav">
+                <button id="prev-month">&lt;</button>
+                <span id="current-month-year"></span>
+                <button id="next-month">&gt;</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    <!-- Calendar dates will be dynamically generated -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="main-content">
+            <div class="actions">
+                <button id="new-event-btn">New Event</button>
+                <select id="view-selector">
+                    <option value="day">Day</option>
+                    <option value="week">Week</option>
+                    <option value="month" selected>Month</option>
+                </select>
+            </div>
+            <div id="event-list"></div>
+        </div>
+    </div>
+
+    <!-- Event creation modal -->
+    <div class="modal" id="event-modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <h2>Create Event</h2>
+        <input type="text" id="event-name" placeholder="Event Name">
+        <input type="date" id="event-date">
+        <input type="time" id="start-time" placeholder="Start Time">
+        <input type="time" id="end-time" placeholder="End Time">
+        <button id="save-event">Save Event</button>
+    </div>
+
+    <script>
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+        let events = []; // Array to store events
+
+        function generateCalendar(month, year) {
+            const calendarBody = document.getElementById('calendar-body');
+            calendarBody.innerHTML = ''; // Clear previous calendar cells
+
+            const firstDay = new Date(year, month, 1).getDay(); // Get the first day of the month
+            const daysInMonth = new Date(year, month + 1, 0).getDate(); // Get number of days in the month
+
+            let date = 1;
+            for (let i = 0; i < 6; i++) { // Calendar has at most 6 rows
+                const row = document.createElement('tr');
+
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    if (i === 0 && j < firstDay) {
+                        cell.innerHTML = '';
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        cell.innerHTML = date;
+                        const cellDate = `${year}-${month + 1}-${date}`;
+                        cell.setAttribute('data-date', cellDate);
+
+                        // Check if there are events on this date and display them
+                        const dayEvents = events.filter(event => event.date === cellDate);
+                        dayEvents.forEach(event => {
+                            const eventDiv = document.createElement('div');
+                            eventDiv.className = 'event';
+                            eventDiv.innerHTML = `${event.name} (${event.startTime} - ${event.endTime})`;
+                            cell.appendChild(eventDiv);
+                        });
+
+                        date++;
+                    }
+                    row.appendChild(cell);
+                }
+                calendarBody.appendChild(row);
+            }
+
+            document.getElementById('current-month-year').textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+        }
+
+        // Function to open the modal for creating a new event
+        document.getElementById('new-event-btn').addEventListener('click', function() {
+            document.getElementById('event-modal').style.display = 'block';
+        });
+
+        // Close the event modal
+        document.getElementById('modal-close').addEventListener('click', function() {
+            document.getElementById('event-modal').style.display = 'none';
+        });
+
+        // Save event
+        document.getElementById('save-event').addEventListener('click', function() {
+            const eventName = document.getElementById('event-name').value;
+            const eventDate = document.getElementById('event-date').value;
+            const startTime = document.getElementById('start-time').value;
+            const endTime = document.getElementById('end-time').value;
+
+            if (eventName && eventDate && startTime && endTime) {
+                events.push({ name: eventName, date: eventDate, startTime, endTime });
+                document.getElementById('event-modal').style.display = 'none';
+                generateCalendar(currentMonth, currentYear); // Refresh the calendar with the new event
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // Navigate to the next month
+        document.getElementById('next-month').addEventListener('click', function() {
+            currentMonth++;
+            if (currentMonth === 12) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentMonth, currentYear);
+        });
+
+        // Navigate to the previous month
+        document.getElementById('prev-month').addEventListener('click', function() {
+            currentMonth--;
+            if (currentMonth === -1) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentMonth, currentYear);
+        });
+
+        // Initialize calendar
+        generateCalendar(currentMonth, currentYear);
+    </script>
+</body>
+</html>

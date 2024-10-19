@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="settings-container">
+        <section class="settings-section">
+            <h2>My settings</h2>
+            <div class="setting-item">
+                <div>
+                    <h3>Appearance</h3>
+                    <p>Customize how the app looks on your device.</p>
+                </div>
+                <select id="theme-select">
+                    <option>Light</option>
+                    <option>Dark</option>
+                </select>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <h3>Open links in desktop app</h3>
+                    <p>You must have the desktop app installed.</p>
+                </div>
+                <button>Enable</button>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2>Startup</h2>
+            <div class="setting-item">
+                <div>
+                    <h3>Open on start</h3>
+                    <p>Choose what to show when the app starts or when switching workspaces.</p>
+                </div>
+                <select>
+                    <option>Last visited page</option>
+                    <option>Home</option>
+                    <option>Top page in sidebar</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2>Date & Time</h2>
+            <div class="setting-item">
+                <div>
+                    <h3>Set timezone automatically using your location</h3>
+                    <p>Reminders, notifications, and emails are delivered based on your time zone.</p>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h3>Time Zone</h3>
+                    <p>Current time zone setting.</p>
+                </div>
+                <p>(GMT +07:00) Asia/Saigon</p>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2>Privacy</h2>
+            <div class="setting-item">
+                <div>
+                    <h3>Cookie settings</h3>
+                    <p>Customize cookies.</p>
+                </div>
+                <select>
+                    <option>Customize</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h3>Show my view history</h3>
+                    <p>People with edit access will be able to see when you’ve viewed a page.</p>
+                </div>
+                <select>
+                    <option>Record</option>
+                    <option>Do not record</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h3>Profile discoverability</h3>
+                    <p>Users with your email can see your name and profile picture.</p>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </section>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>

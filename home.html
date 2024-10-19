@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <script src="javascript/home.js" defer></script>
+    <title>Collaborative note taking website</title>
+
+    <!-- Notes -->
+    <link rel="stylesheet" href="css/notes.css">
+    <script src="javascript/notes.js"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+    
+    <!-- Files -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/files.css">
+    <script src="javascript/files.js"></script>
+
+    <!-- Trash -->
+    <link rel="stylesheet" href="css/trash.css">
+    <script src="javascript/trash.js"></script>
+
+    <!-- Settings -->
+    <link rel="stylesheet" href="css/settings.css">
+    <script src="javascript/settings.js"></script>
+</head>
+<body>
+    <div class="everything">
+<!-- sidebar -->
+    <div class="sidebar" >
+<!-- sidebar components -->
+        <div class="sidebar_container">
+<!-- expanding -->
+            <div class="expand">
+                <button class="contract_btn"><  </button>
+                <button class="expand_btn">></button>
+            </div>
+<!-- profile -->
+            <div class="profile">
+<!-- avatar -->
+                <div class="avatar">
+                    <img src="image/colepalmer.jpg" alt="Profile avatar">
+                </div>
+<!-- username + email -->
+                <div class="user">
+                    <div class="username">Username</div>
+                    <div class="email">user@gmail.com</div>
+                </div>
+            </div>
+<!-- searchbar -->
+            <form action="">
+                <div class="searchbar">
+                    <span class="search_icon material-symbols-outlined">search</span>
+                    <input class="search_input" type="search" placeholder="Search">
+                </div>
+            </form>
+<!-- quick create -->
+            <div class="create">
+                <div>
+                <button class="note"><span class="material-symbols-outlined">add_notes</span><b>Note</b></button>
+                <button class="more"><span class="material-symbols-outlined">more_horiz</span></button>
+                </div>
+                <div>        
+                <button class="task"><span class="material-symbols-outlined">add_task</span><b>Task</b></button>
+                <button class="event"><span class="material-symbols-outlined">calendar_add_on</span><b>Event</b></button>
+                </div>
+            </div>
+<!-- navigation -->
+            <nav class="navigation">
+                <ul>
+                    <li class="display-home"><span class="material-symbols-outlined">home</span><span class="text">Home</span></li>
+                    <li class="display-notes"><span class="material-symbols-outlined">description</span><span class="text">Notes</span></li>
+                    <li class="display-files"><span class="material-symbols-outlined">attach_file</span><span class="text">Files</span></li>
+                    <li><span class="material-symbols-outlined">calendar_month</span><span class="text">Calendar</span></li>
+                    <li><span class="material-symbols-outlined">book_4</span><span class="text">Notebooks</span></li>
+                    <li class="display-trash"><span class="material-symbols-outlined">delete</span><span class="text">Trash</span></li>
+                    <li class="display-settings"><span class="material-symbols-outlined">settings</span><span class="text">Settings</span></li>
+                </ul>
+            </nav>
+<!-- Help -->
+            <div class="log-out">
+                <span class="material-symbols-outlined">logout</span><span class="text">Log out</span>
+            </div>
+        </div>
+    </div>
+<!-- main contents -->
+    <div class="main_content">
+        <div class="content_container">
+            <div class="welcome">
+                <p>Ready to start taking notes?</p>
+                <h2>Username's Home</h2>
+            </div>
+            <div class="widget_group1">
+                <div class="note_create">
+                    <h4>Notes</h4>
+                    <div class="note_create1">
+                        <div class="note1">
+                            <h5>Untitled</h5>
+                            <p>Oct 1</p>
+                        </div>
+                        <div class="note2">
+                            <h5>Untitled</h5>
+                            <p>Oct 2</p>
+                        </div>
+                        <div class="note_new">
+                            <span class="material-symbols-outlined">add_notes</span>
+                            <h4>Create new note</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="scratch_pad">
+                    <h4>Scratch pad</h4>
+                    <textarea placeholder="Write something ..."></textarea>
+                </div>
+            </div>
+            <div class="widget_group2">
+                <h3>Calendar</h3>
+                <div class="calendar">
+                    <header>
+                        <h3></h3>
+                        <nav>
+                            <button id="prev"></button>
+                            <button id="next"></button>
+                        </nav>
+                    </header>
+                    <section>
+                        <ul class="day">
+                            <li>Mon</li>
+                            <li>Tue</li>
+                            <li>Wed</li>
+                            <li>Thu</li>
+                            <li>Fri</li>
+                            <li>Sat</li>
+                            <li>Sun</li>
+                        </ul>
+                        <ul class="date"></ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="note-container">
+        <div class="note-list">
+            <div class="note-header">
+                <h2>Notes</h2>
+                <div class="create-note">+ New Note</div>
+            </div>
+            <p class="note-number">0 notes</p>
+            <div class="note-begin">
+                <img src="image/note-image.png" alt="Note image">
+                <p><b>It all begins with notes</b></p>
+                <p>Click the + New Note button in the sidebar to create a note.</p>
+            </div>
+            <div class="note-bar"></div>
+        </div>
+        <div class="editor-wrapper">
+            <div class="toolbar-upper"></div>
+            <div class="note-editor"></div>
+        </div>
+    </div>
+
+    <!-- Files -->
+    <div class="container">
+        <div class="sidebar-hacao">
+         <h1>
+          Files
+         </h1>
+         <div class="elements-count">
+          <span id="fileCount">0 elements</span>
+          <div class="icons">
+           <i class="fas fa-plus" onclick="triggerUpload()">
+           </i>
+           <input class="upload-input" id="uploadInput" onchange="handleFileUpload(event)" type="file" multiple/>
+           <i class="fas fa-sort" onclick="toggleSortOptions()">
+           </i>
+           <div class="sort-options" id="sortOptions">
+            <ul>
+             <li class="ascending" onclick="toggleSortOrder(event)">Sort by Recent</li>
+             <li class="" onclick="toggleSortOrder(event)">Sort by Title</li>
+             <li class="" onclick="toggleSortOrder(event)">Sort by File Size</li>
+             <li class="separator" onclick="toggleSortOrder(event)">Sort by File Kind</li>
+             <li onclick="toggleSelection(event)" class="selected">Show File Size</li>
+             <li onclick="toggleSelection(event)" class="">Show File Position</li>
+            </ul>
+           </div>
+          </div>
+         </div>
+         <div class="search-box">
+          <input id="searchInput" onkeyup="searchFiles()" placeholder="Search file" type="text"/>
+          <i class="fas fa-search">
+          </i>
+         </div>
+         <div class="filter-options" id="filterOptions">
+          <ul>
+           <li onclick="filterFiles('all')">All Files</li>
+           <li onclick="filterFiles('image')">Images</li>
+           <li onclick="filterFiles('doc')">Docs</li>
+          </ul>
+         </div>
+         <div class="info" id="info">
+          <img alt="Pink paper with a white paperclip" src="image/papernote.png"/>
+          <p>
+           Manage your important files in Evernote
+          </p>
+          <p>
+           Click the add file button above to upload your first attachment
+          </p>
+         </div>
+         <div class="file-list" id="fileListContainer" style="display: none;">
+          <ul id="fileList">
+          </ul>
+         </div>
+        </div>
+        <div class="main-content">
+         <div class="taskbar" id="taskbar" style="display: none;">
+             <span class="file-name"></span>
+             <span class="go-to-note" onclick="goToNote()">Go to Note</span>
+             <i class="fas fa-download" id="downloadButton" ></i>
+         </div>
+         <div class="no-preview">
+          <h2>
+           No preview available
+          </h2>
+          <p>
+           Try using a different keyword
+          </p>
+         </div>
+         <div class="file-preview" id="filePreview">
+         </div>
+        </div>
+       </div>
+
+       <!-- Trash -->
+       <div class="trash-container">
+        <div class="trash-sidebar">
+            <h2>Trash (<span id="note-count">0</span>)</h2>
+            <ul id="note-list">
+                <!-- Notes will be dynamically added here -->
+            </ul>
+            <button id="empty-trash-btn">Empty Trash</button>
+        </div>
+        <div class="note-display">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2 id="note-title">Select a note</h2>
+                <button id="delete-note-btn" style="display: flex;"><span class="material-symbols-outlined">delete</span></button>
+            </div>
+            <p id="note-content">Note content will appear here.</p>
+        </div>
+    </div>
+
+    <!-- Settings -->
+    <div class="settings-container">
+        <section class="settings-section">
+            <h2>My settings</h2>
+            <div class="setting-item">
+                <div>
+                    <h3>Appearance</h3>
+                    <p>Customize how the app looks on your device.</p>
+                </div>
+                <select id="theme-select">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <h3>Open links in desktop app</h3>
+                    <p>You must have the desktop app installed.</p>
+                </div>
+                <button>Enable</button>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2>Startup</h2>
+            <div class="setting-item">
+                <div>
+                    <h3>Open on start</h3>
+                    <p>Choose what to show when the app starts or when switching workspaces.</p>
+                </div>
+                <select>
+                    <option>Last visited page</option>
+                    <option>Home</option>
+                    <option>Top page in sidebar</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2>Date & Time</h2>
+            <div class="setting-item">
+                <div>
+                    <h3>Set timezone automatically using your location</h3>
+                    <p>Reminders, notifications, and emails are delivered based on your time zone.</p>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h3>Time Zone</h3>
+                    <p>Current time zone setting.</p>
+                </div>
+                <p>(GMT +07:00) Asia/Saigon</p>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h2>Privacy</h2>
+            <div class="setting-item">
+                <div>
+                    <h3>Cookie settings</h3>
+                    <p>Customize cookies.</p>
+                </div>
+                <select>
+                    <option>Customize</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h3>Show my view history</h3>
+                    <p>People with edit access will be able to see when you’ve viewed a page.</p>
+                </div>
+                <select>
+                    <option>Record</option>
+                    <option>Do not record</option>
+                </select>
+            </div>
+            <div class="setting-item">
+                <div>
+                    <h3>Profile discoverability</h3>
+                    <p>Users with your email can see your name and profile picture.</p>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </section>
+    </div>
+
+</div>
+</body>
+</html>

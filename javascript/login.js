@@ -15,5 +15,5 @@ loginBtn.addEventListener('click', ()=>{
 const signInBtn = document.querySelector('.sign-in');
 signInBtn.addEventListener('click', function(event){
     event.preventDefault();
-    window.location.href = "index.html";// change index.html with the file you want to redirect
+    window.location.href = "home.html";// change index.html with the file you want to redirect
 });

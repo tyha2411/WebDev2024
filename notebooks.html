@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebooks</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+    <link rel="stylesheet" href="css/files.css">
+</head>
+<body>
+    <div class="notebooks-section">
+        <h1>Notebooks</h1>
+        <div class="container">
+            <div class="left">
+                <p>You have <span id="notebookCount">0</span> notebooks.</p>
+            </div>
+            <div class="right actions-container">
+                <button id="newNotebookBtn">Create New Notebook</button>
+                <div class="sort-button" id="sortBtn">
+                    <i class="ri-sort-desc sort-icon"></i>
+                    <div class="dropdown">
+                        <button onclick="sortNotebooks('date')">Sort by Date</button>
+                        <button onclick="sortNotebooks('title')">Sort by Title</button>
+                    </div>
+                </div>
+                <input type="text" id="search" placeholder="Search by title">
+            </div>
+        </div>
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Creator</th>
+                        <th>Updated</th>
+                        <th>Shared With</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="notebookTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--New notebook -->
+    <div id="newNotebookModal" class="modal">
+        <div class="modal-content">
+            <h2>Create New Notebook</h2>
+            <div>
+                <input type="text" id="notebookName" placeholder="Enter notebook name" required>
+                <button id="cancelBtn" class="cancel">Cancel</button>
+                <button id="createBtn" class="create">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/files.js"></script>
+</body>
+</html>

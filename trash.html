@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trash</title>
+    <link rel="stylesheet" href="css/trash.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
+</head>
+<body>
+    <div class="trash-container">
+        <div class="trash-sidebar">
+            <h2>Trash (<span id="note-count">0</span>)</h2>
+            <ul id="note-list">
+                <!-- Notes will be dynamically added here -->
+            </ul>
+            <button id="empty-trash-btn">Empty Trash</button>
+        </div>
+        <div class="note-display">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2 id="note-title">Select a note</h2>
+                <button id="delete-note-btn"><span class="material-symbols-outlined">delete</span></button>
+            </div>
+            <p id="note-content">Note content will appear here.</p>
+        </div>
+    </div>
+
+    <script src="javascript/trash.js"></script>
+</body>
+</html>

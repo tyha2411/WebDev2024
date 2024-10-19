@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note-Taking</title>
+    
+    <!-- Main -->
+    <link rel="stylesheet" href="css/notes.css">
+    <script src="javascript/notes.js"></script>
+    
+    <!-- Text editor -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    
+    <!-- Google icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+    
+    <!-- Tooltip -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+</head>
+<body>
+    <div class="note-container">
+        <div class="note-list">
+            <div class="note-header">
+                <h2>Notes</h2>
+                <div class="create-note">+ New Note</div>
+            </div>
+            <p class="note-number">0 notes</p>
+            <div class="note-begin">
+                <img src="image/note-image.png" alt="Note image">
+                <p><b>It all begins with notes</b></p>
+                <p>Click the + New Note button in the sidebar to create a note.</p>
+            </div>
+            <div class="note-bar"></div>
+        </div>
+        <div class="editor-wrapper">
+            <div class="toolbar-upper"></div>
+            <div class="note-editor"></div>
+        </div>
+    </div>
+</body> 
+</html>
