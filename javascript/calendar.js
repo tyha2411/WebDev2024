@@ -111,3 +111,4 @@ document.addEventListener('mousemove', (e) => {
 
         // Initialize view
         updateView();
+ 
